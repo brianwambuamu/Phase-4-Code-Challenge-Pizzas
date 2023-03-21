@@ -5,7 +5,9 @@ class RestaurantsController < ApplicationController
     end
 
     def show
+        #check if restaurant is present
         restaurant = Restaurant.find_by(id:params[:id])
+        #return restaurant 
         if restaurant
             render json:
             restaurant, only:[:id, :name, :address], include: :pizzas
